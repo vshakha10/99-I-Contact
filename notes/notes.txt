@@ -82,5 +82,10 @@ export interface groupID{
     updateAt?:Date;
 }
 
+export Company interface{
+  name: string;
+  
+ }
+
 
 
