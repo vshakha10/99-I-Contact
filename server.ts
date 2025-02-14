@@ -2,6 +2,7 @@ import express , {Request,Response,Application}  from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import groupRouter from './Routes/groupRouter'
+import userRouter from './Routes/userRouter'
 dotenv.config({path:'./.env'})
 
 const port:number| string| undefined = process.env.PORT || 9999;
@@ -11,7 +12,10 @@ const hostname: string = '127.0.0.1';
 
 const app:Application = express()
 
+app.use(express.json())
+
 app.use('/group' , groupRouter)
+app.use('/user',userRouter)
 
 if (port) {
     app.listen(port, () => {
